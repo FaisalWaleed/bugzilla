@@ -1,0 +1,8 @@
+<h2> Start New Project </h2>
+<%= form_for @project do |new_project| %>
+<div class="field">
+    <%= new_project.label :title %>
+    <%= new_project.text_field :title %>
+</div>
+<div class="actions"> <%= new_project.submit %></div>
+<% end  %>

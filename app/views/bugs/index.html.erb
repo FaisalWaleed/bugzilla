@@ -1,0 +1,39 @@
+<h2> Bugs Listing for Project ' <%=@title%> ' </h2>
+<br><br>
+
+<div class="row">
+<div class="col-md-9">
+	<% if @project_bugs.blank? %>
+		<h4 align = "center"> 'No Bug Yet' </h2> <br> <br>
+		<% else %>
+<table class="table table-striped">
+	<thead><td>Title</td><td>Description</td><td>Dead Line</td><td>Type</td><td>Status</td><td>Resolver</td><td>Reporter</td><td>Project</td></thead>
+	<tbody>
+		
+<% @project_bugs.each do |bugs| %>
+<tr>
+<td><%= bugs.tilte %></td>
+<td><%= bugs.description %></td>
+<td><%= bugs.deadline %></td>
+<td> <%= bugs.bug_type   %></td>
+
+<td><%= bugs.status   %></td>
+<td><%= bugs.resolver   %></td>
+<td><%= bugs.user_id   %></td>
+<td><%= bugs.project_id   %></td>
+ 
+<td>
+	<%= image_tag bugs.img_url.to_s %>
+</td>
+
+</tr>
+<% end %>
+<% end %>
+</tbody>
+</table>
+<br> <br>
+<div align = "center">
+<%= link_to :"Back to Projects", projects_path,:class => 'btn btn-primary' %>
+</div>
+</div>
+</div>

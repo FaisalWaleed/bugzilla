@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bugzilla</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+
+
+
+
+<body class="<%= params[:controller] %>">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Bugzila</a>
+  </div>
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a href="<%= projects_path %>"> Projects </a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right" >
+      <% if current_user %>
+        <li style="margin-top:13px;">Logged in as <%= current_user.email %></li>
+        <li><%= link_to "Log out", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Sign up", signup_path %></li>
+        <li><%= link_to "Log in", login_path  %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+
+  <div id="container" style = "margin-top:70px">
+    
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <% name = name.to_s == 'success' ? 'success' : name.to_s %>
+    <% name = name.to_s == 'alert' ? 'danger' : name.to_s %>
+  <% name = name.to_s == 'notice' ? 'info' : name.to_s %>    
+    <div class="alert alert-<%= name %> main-alert">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= content_tag :div, msg.html_safe, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+<% end %>
+
+    
+    <%= yield %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<%= form_for @user do |new_user| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= new_user.label :name %>
+    <%= new_user.text_field :name %>
+  </div>
+  <div>
+  	<%= new_user.label :role %>
+  	<%= new_user.select :role, options_for_select([['Manager', 'manager'], ['Developer', 'developer'],['User', 'user']]) %>
+  <!-- <select>
+  	
+  	<%#= f.text_field :type %>
+  <option value="manager">Manager</option>
+  <option value="developer">Developer</option>
+  <option value="user">User</option>
+</select> -->
+</div>
+  <div class="field">
+    <%= new_user.label :email %>
+    <%= new_user.text_field :email %>
+  </div>
+  <div class="field">
+    <%= new_user.label :password %>
+    <%= new_user.password_field :password %>
+  </div>
+  <div class="field">
+    <%= new_user.label :password_confirmation %>
+    <%= new_user.password_field :password_confirmation %>
+  </div>
+  
+  <div class="actions"><%= new_user.submit %></div>
+<% end %>

@@ -1,0 +1,9 @@
+class RemoveColumnTypeFromUser < ActiveRecord::Migration
+  def up
+    remove_column :users, :user_type
+  end
+
+  def down
+    add_column :users, :user_type, :string
+  end
+end

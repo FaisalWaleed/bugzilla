@@ -1,0 +1,52 @@
+<h2> Report Your Bug Here</h2>
+
+<%= form_for [:project, @bug], :html => {:multipart => true} do |bugg| %>
+	<%= bugg.hidden_field :project_id %>
+  <%= bugg.hidden_field :user_id, value:  current_user.id %>
+
+<div>
+  <div class="field">
+    <%= bugg.label :tilte %>
+    <%= bugg.text_field :tilte %>
+  </div>
+  <div class="field">
+    <%= bugg.label :description %>
+    <%= bugg.text_field :description %>
+  </div>
+  <div >
+  	<%= bugg.label :bug_type %>
+  	<%= bugg.select :bug_type, options_for_select([['Select Type', 'select'],['Feature', 'feature'], ['Bug', 'bug']]) %>
+  </div>
+  <div  class = "hidden_option", id = "feature-select">
+  	<%= bugg.label :status %>
+  	<%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Completed', 'completed']]) %>
+  </div> 
+  <div class = "hidden_option", id = "bug-select">
+    <%= bugg.label :status %>
+    <%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Resolved', 'resolved']]) %>
+  </div>
+  <div class="date">
+    <%= bugg.label :deadline %>
+    <%= bugg.text_field :deadline , :type => "date"%>
+  </div>
+  <p>
+    <%= bugg.file_field :img %>
+  </p>
+  <div class="actions"> <%= bugg.submit %>
+  </div>
+  <% end %>
+</div>
+
+<script>
+    
+    $("#bug_bug_type").change(function(){
+      console.log($("#bug_bug_type").val());
+         if ($("#bug_bug_type").val()=="feature"){
+             $("#feature-select").show();
+             $("#bug-select").hide();
+         } else {
+             $('#bug-select').show();
+             $("#feature-select").hide();
+         }
+    })
+</script>
