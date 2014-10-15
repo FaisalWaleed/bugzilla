@@ -11,7 +11,7 @@
 			<% @project.each do |projkt| %>
 			<tr>
 				<td><%= projkt.title %></td>
-				<td><%= projkt.user_id %></td>
+				<td><%= User.find(projkt.user_id).name %></td>
 				<td><%= link_to "Report Bug", new_project_bug_path(projkt), :class => 'btn btn-danger' %>
 
 				<%= link_to "View Bugs", project_bugs_path(projkt), :class => 'btn btn-primary' %>

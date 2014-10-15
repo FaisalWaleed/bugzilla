@@ -10,13 +10,17 @@ class UsersController < ApplicationController
 	end
 
 	def create
-  	@user = User.new(params[:user])
-  	@user.save!
-  	if(@user.save)
-    	redirect_to root_url
-    	flash[:notice] = "Signed Up Successfully"
-  	else
-    	render :new, :alert => "Sign Up failed..!!!"
-  	end
+    begin
+    	@user = User.new(params[:user])
+    	@user.save!
+    	if(@user.save)
+      	redirect_to root_url
+      	flash[:notice] = "Signed Up Successfully"
+    	else
+      	render :new, :alert => "Sign Up failed..!!!"
+    	end
+    rescue
+      render :new
+    end
 	end
 end
