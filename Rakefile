@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bugszilla::Application.load_tasks
+Buggzilla::Application.load_tasks

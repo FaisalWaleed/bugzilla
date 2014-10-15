@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Bugszilla::Application.config.secret_token = '272d94c0d18598762de38dc1f433b761f0bc8d8036934d971e1bba84e4ffc315b3e3f14bd825431233583116538173fd6bdbeea26e146f5e4d69113dc820aa52'
+Buggzilla::Application.config.secret_token = 'eb1e53b79f0384158aff0accbbfec5dcb65e82ddbca052c0ff6880a2543874d036d214ddd6914d1852df24e012a84f895ae5650561b53dc7a85bd8e903764022'

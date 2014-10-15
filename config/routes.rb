@@ -1,5 +1,5 @@
-Bugszilla::Application.routes.draw do
-
+Buggzilla::Application.routes.draw do
+ 
 get "projects_users/new"
 
   get "projects/create"
