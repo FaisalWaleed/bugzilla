@@ -9,33 +9,33 @@
       </ul>
     </div>
   <% end %>
-<div class="field">
-    <%= new_user.label :name %>
-    <%= new_user.text_field :name %>
-  </div>
-  <div>
-  	<%= new_user.label :role %>
-  	<%= new_user.select :role, options_for_select([['Manager', 'manager'], ['Developer', 'developer'],['User', 'user']]) %>
-  <!-- <select>
-  	
-  	<%#= f.text_field :type %>
-  <option value="manager">Manager</option>
-  <option value="developer">Developer</option>
-  <option value="user">User</option>
-</select> -->
-</div>
-  <div class="field">
-    <%= new_user.label :email %>
-    <%= new_user.text_field :email %>
-  </div>
-  <div class="field">
-    <%= new_user.label :password %>
-    <%= new_user.password_field :password %>
-  </div>
-  <div class="field">
-    <%= new_user.label :password_confirmation %>
-    <%= new_user.password_field :password_confirmation %>
-  </div>
-  
-  <div class="actions"><%= new_user.submit %></div>
+  <div class="container">  
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title">Signup</h1>
+      <div class="account-wall">
+        <div>
+        <%= new_user.label :name %>
+      
+          <%= new_user.text_field :name,class: "form-control" %>
+        </div>
+      
+      <div>
+      <%= new_user.label :role %><br/>
+        <%= new_user.select :role, options_for_select([['Manager', 'manager'], ['Developer', 'developer'],['User', 'user']]),{},{class: "form-control"} %>
+        </div>
+      <div>
+      <%= new_user.label :email %>
+          <%= new_user.text_field :email,class: "form-control" %>
+        </div>
+      <div class="field">
+      <%= new_user.label :password %>
+          <%= new_user.password_field :password,class: "form-control" %>
+        </div>
+      <div class="field">
+      <%= new_user.label :password_confirmation %>
+          <%= new_user.password_field :password_confirmation,class: "form-control" %><br/>
+        </div>
+      <div class="field"><%= new_user.submit "Sign Up", class: "btn btn-lg btn-block", style: "background-color:#666;color:white"  %></div>
+      
 <% end %>

@@ -1,40 +1,47 @@
-<h2> Report Your Bug Here</h2>
 
+<div class="container">  
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title">Report Your Bug Here</h1>
+      <div class="account-wall">
 <%= form_for [:project, @bug], :html => {:multipart => true} do |bugg| %>
 	<%= bugg.hidden_field :project_id %>
   <%= bugg.hidden_field :user_id, value:  current_user.id %>
 
 <div>
-  <div class="field">
+  <div>
     <%= bugg.label :tilte %>
-    <%= bugg.text_field :tilte %>
+    <%= bugg.text_field :tilte,class: "form-control" %>
   </div>
-  <div class="field">
+<div>
     <%= bugg.label :description %>
-    <%= bugg.text_field :description %>
+    <%= bugg.text_field :description,class: "form-control" %>
   </div>
   <div >
-  	<%= bugg.label :bug_type %>
-  	<%= bugg.select :bug_type, options_for_select([['Select Type', 'select'],['Feature', 'feature'], ['Bug', 'bug']]) %>
+  	<%= bugg.label :bug_type %><br/>
+  	<%= bugg.select :bug_type, options_for_select([['Select Type', 'select'],['Feature', 'feature'], ['Bug', 'bug']]),class: "form-control" %><br/>
   </div>
   <div  class = "hidden_option", id = "feature-select">
-  	<%= bugg.label :status %>
-  	<%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Completed', 'completed']]) %>
+  	<%= bugg.label :status %><br/>
+  	<%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Completed', 'completed']]),class: "form-control" %>
   </div> 
   <div class = "hidden_option", id = "bug-select">
-    <%= bugg.label :status %>
-    <%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Resolved', 'resolved']]) %>
+    <%= bugg.label :status %><br/>
+    <%= bugg.select :status, options_for_select([['New', 'New'], ['Started', 'started'], ['Resolved', 'resolved']]),class: "form-control" %>
   </div>
-  <div class="date">
+  <div>
     <%= bugg.label :deadline %>
-    <%= bugg.text_field :deadline , :type => "date"%>
+    <%= bugg.text_field :deadline , :type => "date",class: "form-control" %>
   </div>
-  <p>
+  <p><br/>
     <%= bugg.file_field :img %>
   </p>
-  <div class="actions"> <%= bugg.submit %>
-  </div>
+  <div class="field"><%= bugg.submit "Report", class: "btn btn-lg btn-block" , style: "background-color:#666;color:white" %></div>
   <% end %>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <script>

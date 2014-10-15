@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141002113157) do
+ActiveRecord::Schema.define(:version => 20141014131236) do
 
   create_table "bugs", :force => true do |t|
     t.string   "tilte"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20141002113157) do
     t.integer  "resolver"
     t.integer  "user_id"
     t.integer  "project_id"
+  end
+
+  create_table "newmods", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "project_users", :force => true do |t|

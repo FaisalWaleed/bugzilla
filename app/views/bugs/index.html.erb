@@ -23,7 +23,7 @@
 <td><%= bugs.project_id   %></td>
  
 <td>
-	<%= image_tag bugs.img_url.to_s %>
+	<%= image_tag bugs.img_url(:thumb)  %>
 </td>
 
 </tr>
@@ -33,7 +33,7 @@
 </table>
 <br> <br>
 <div align = "center">
-<%= link_to :"Back to Projects", projects_path,:class => 'btn btn-primary' %>
+<%= link_to "Back to Projects", projects_path,:class => 'btn btn-primary' %>
 </div>
 </div>
 </div>
